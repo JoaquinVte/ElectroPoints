@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapViewController: UIViewController, MKMapViewDelegate {
 
@@ -25,9 +26,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         let toqueLargo:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(toqueLargoDetectado(gesto:)))
         toqueLargo.minimumPressDuration=2
-        
+                
         mapView.addGestureRecognizer(toqueLargo)
-
     }
     
     @objc func toqueLargoDetectado(gesto:UIGestureRecognizer){
@@ -41,7 +41,31 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let anotacion = MKPointAnnotation()
             anotacion.coordinate = posicion
             
-            mapView.addAnnotation(anotacion)
+            let localizacion:CLLocation = CLLocation(latitude: posicion.latitude, longitude: posicion.longitude)
+            
+            CLGeocoder().reverseGeocodeLocation(localizacion) {
+                
+               [unowned self] (placemarks, error) in
+                
+                if let error=error {
+                    
+                    print(error)
+                    
+                }else{
+                    if let placemark = placemarks?[0]{
+                        
+                        if let direccion = placemark.thoroughfare {
+                            anotacion.title=direccion
+                        }
+                        if let city = placemark.country {
+                            anotacion.subtitle = city
+                        }
+                    }
+                }
+                
+                self.mapView.addAnnotation(anotacion)
+            }
+           
         }
         
     }
