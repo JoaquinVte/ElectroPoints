@@ -38,8 +38,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
             let posicion:CLLocationCoordinate2D = mapView.convert(punto, toCoordinateFrom: mapView)
             
-            let anotacion = MKPointAnnotation()
-            anotacion.coordinate = posicion
             
             let localizacion:CLLocation = CLLocation(latitude: posicion.latitude, longitude: posicion.longitude)
             
@@ -52,22 +50,33 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     print(error)
                     
                 }else{
+                    
                     if let placemark = placemarks?[0]{
                         
-                        if let direccion = placemark.thoroughfare {
-                            anotacion.title=direccion
+                        var direccion:String = ""
+                        var ciudad:String = ""
+                        
+                        if let direction = placemark.thoroughfare {
+                            direccion=direction
+                            print(direccion)
                         }
-                        if let city = placemark.country {
-                            anotacion.subtitle = city
+                        if let city = placemark.locality {
+                            ciudad = city
                         }
+                        
+                        let anotacion:ChargingPoint = ChargingPoint(name: ciudad,street: direccion ,power: 1.1,price: 2.2,coordinate:posicion)
+                        
+                        self.mapView.addAnnotation(anotacion)
+                        
                     }
+                    
                 }
                 
-                self.mapView.addAnnotation(anotacion)
             }
            
         }
         
     }
+    
 }
 
