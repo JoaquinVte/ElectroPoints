@@ -53,35 +53,23 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 }else{
 
                     if let placemark = placemarks?[0]{
-
-                        var direccion:String = ""
-                        var ciudad:String = ""
-
-                        if let direction = placemark.thoroughfare {
-                            direccion=direction
-                        }
-                        if let city = placemark.locality {
-                            ciudad = city
-                        }
-
+                        
                         let info = (posicion,placemark)
                         print("Enviando info")
                         
                         performSegue(withIdentifier: "addPoint", sender: info)
                         
-//                        let anotacion:ChargingPoint = ChargingPoint(name: ciudad,street: direccion ,power: 1.1,price: 2.2,coordinate: posicion)
-//
-//                        self.mapView.addAnnotation(anotacion)
-                        
-                       
                     }
                 }
             }
         }
     }
     
-    func addChargingPoint(chargingPoint : ChargingPoint) -> Void {
+    func addChargingPoint(chargingPoint : ChargingPoint) {
+        
         mapView.addAnnotation(chargingPoint)
+        PointsService.shared.allPoints.append(chargingPoint)        
+        
     }
     
     // MARK: - Navigation

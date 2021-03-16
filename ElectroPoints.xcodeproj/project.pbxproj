@@ -15,6 +15,7 @@
 		1C802AF725FE5EFD003D84F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C802AF525FE5EFD003D84F4 /* LaunchScreen.storyboard */; };
 		1C802B0625FE7D45003D84F4 /* ChargingPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C802B0525FE7D45003D84F4 /* ChargingPoint.swift */; };
 		1C802B0925FE9296003D84F4 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C802B0825FE9296003D84F4 /* FormViewController.swift */; };
+		1CA2125E2600CBB500D8E50A /* ChargingPointsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA2125D2600CBB500D8E50A /* ChargingPointsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		1C802AF825FE5EFD003D84F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C802B0525FE7D45003D84F4 /* ChargingPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingPoint.swift; sourceTree = "<group>"; };
 		1C802B0825FE9296003D84F4 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		1CA2125D2600CBB500D8E50A /* ChargingPointsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingPointsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				1C802AF825FE5EFD003D84F4 /* Info.plist */,
 				1C802B0825FE9296003D84F4 /* FormViewController.swift */,
 				1C802B0525FE7D45003D84F4 /* ChargingPoint.swift */,
+				1CA2125D2600CBB500D8E50A /* ChargingPointsService.swift */,
 			);
 			path = ElectroPoints;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				1C802AEF25FE5EF9003D84F4 /* MapViewController.swift in Sources */,
 				1C802AEB25FE5EF9003D84F4 /* AppDelegate.swift in Sources */,
 				1C802AED25FE5EF9003D84F4 /* SceneDelegate.swift in Sources */,
+				1CA2125E2600CBB500D8E50A /* ChargingPointsService.swift in Sources */,
 				1C802B0925FE9296003D84F4 /* FormViewController.swift in Sources */,
 				1C802B0625FE7D45003D84F4 /* ChargingPoint.swift in Sources */,
 			);
