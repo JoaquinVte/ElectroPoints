@@ -34,7 +34,7 @@ class FormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             
             if let potencia = Double(potenciaTextField.text!){
                 
-                newChargingPoint = ChargingPoint(name: direccion2.text! ,street: direccion1.text! ,power: potencia,price: precio,coordinate: posicion!, type: tipoPicker.selectedRow(inComponent: 0))
+                newChargingPoint = ChargingPoint(name: direccion2.text! ,street: direccion1.text! ,power: potencia,price: precio,coordinates: Coordinate.init(latitude: posicion!.latitude, longitude: posicion!.longitude), type: tipoPicker.selectedRow(inComponent: 0))
                 chargingPointCreatedHandler?(newChargingPoint!)
                 
                 navigationController?.popViewController(animated: true)

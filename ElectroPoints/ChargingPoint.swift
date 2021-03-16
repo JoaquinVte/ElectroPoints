@@ -7,11 +7,16 @@
 import Foundation
 import MapKit
 
-class ChargingPoint: NSObject,MKAnnotation {
+class ChargingPoint: NSObject,MKAnnotation,Codable {
     
-    var coordinate: CLLocationCoordinate2D
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
+    }
+    
+     
     var title:String?
     var subtitle:String?
+    var coordinates : Coordinate
     
     
     let name:String
@@ -21,9 +26,9 @@ class ChargingPoint: NSObject,MKAnnotation {
     let type:Int
     
 
-    init(name:String,street:String,power:Double,price:Double,coordinate:CLLocationCoordinate2D,type : Int) {
+    init(name:String,street:String,power:Double,price:Double,coordinates:Coordinate,type : Int) {
         
-        self.coordinate=coordinate
+        self.coordinates=coordinates
         self.name=name
         self.street=street
         self.power=power
@@ -41,7 +46,7 @@ class ChargingPoint: NSObject,MKAnnotation {
     
 }
 
-enum ConnectorType: Int , CustomStringConvertible, CaseIterable {
+enum ConnectorType: Int , CustomStringConvertible, CaseIterable, Codable {
           
     var description: String {
         switch self {
@@ -55,4 +60,11 @@ enum ConnectorType: Int , CustomStringConvertible, CaseIterable {
     }
     case schuko = 1, mennekes = 2, chademo = 3
             
+}
+
+struct Coordinate: Codable, Hashable {
+    
+    var latitude : Double
+    var longitude : Double
+    
 }
