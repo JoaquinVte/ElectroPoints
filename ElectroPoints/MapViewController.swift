@@ -42,6 +42,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
             if let loadPoints = try? decoder.decode([ChargingPoint].self, from: savedPoints){
                 PointsService.shared.allPoints = loadPoints
+                mapView.addAnnotations(loadPoints)
             }
         }
         
