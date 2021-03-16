@@ -41,7 +41,10 @@ class ChargingPoint: NSObject,MKAnnotation,Codable {
         super.init()
     }
     
-    
+    func getDistance(from other: CLLocation) -> CLLocationDistance {
+        let posicion : CLLocation = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
+        return posicion.distance(from: other)
+    }
     
     
 }

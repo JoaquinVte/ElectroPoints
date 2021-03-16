@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class PointChargingCell: UITableViewCell {
 
@@ -14,6 +15,7 @@ class PointChargingCell: UITableViewCell {
     @IBOutlet weak var potenciaLabel: UILabel!
     @IBOutlet weak var precioLabel: UILabel!
     @IBOutlet weak var typeImage: UIImageView!
+    @IBOutlet weak var distanceLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,14 +47,15 @@ class PointChargingCell: UITableViewCell {
         default:
             break
         }
-       
-//        let dateFormatterPrint = DateFormatter()
-//        dateFormatterPrint.dateFormat = "dd-MM-yyyy"
-//        
-//        labelDate.text = dateFormatterPrint.string(from: workout.date)
-//        labelDuration.text = "Duracion: " + String(workout.duration) + " minutos"
-//        labelType.text = workout.type.rawValue
+    }
+    
+    func setDistance(distance: CLLocationDistance ) -> Void {
         
+        if(distance > 1000){
+            distanceLabel.text = String(format: "%.01f km",distance/1000)
+        } else {
+            distanceLabel.text = String(format: "%.01f m",distance)
+        }
     }
 
 }
