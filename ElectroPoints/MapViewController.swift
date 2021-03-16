@@ -41,41 +41,69 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
             let localizacion:CLLocation = CLLocation(latitude: posicion.latitude, longitude: posicion.longitude)
             
+            
             CLGeocoder().reverseGeocodeLocation(localizacion) {
-                
+
                [unowned self] (placemarks, error) in
-                
+
                 if let error=error {
-                    
+
                     print(error)
-                    
+
                 }else{
-                    
+
                     if let placemark = placemarks?[0]{
-                        
+
                         var direccion:String = ""
                         var ciudad:String = ""
-                        
+
                         if let direction = placemark.thoroughfare {
                             direccion=direction
-                            print(direccion)
                         }
                         if let city = placemark.locality {
                             ciudad = city
                         }
+
+                        let info = (posicion,placemark)
+                        print("Enviando info")
                         
-                        let anotacion:ChargingPoint = ChargingPoint(name: ciudad,street: direccion ,power: 1.1,price: 2.2,coordinate:posicion)
+                        performSegue(withIdentifier: "addPoint", sender: info)
                         
-                        self.mapView.addAnnotation(anotacion)
+//                        let anotacion:ChargingPoint = ChargingPoint(name: ciudad,street: direccion ,power: 1.1,price: 2.2,coordinate: posicion)
+//
+//                        self.mapView.addAnnotation(anotacion)
                         
+                       
                     }
-                    
                 }
-                
             }
-           
         }
+    }
+    
+    func addChargingPoint(chargingPoint : ChargingPoint) -> Void {
+        mapView.addAnnotation(chargingPoint)
+    }
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     
+        if let destination = segue.destination as? FormViewController{
+            
+            destination.chargingPointCreatedHandler = addChargingPoint
         
+            if let info = sender as? (CLLocationCoordinate2D?,CLPlacemark?){
+                print("Obteniendo sender")
+                if let loc = info.0{
+                    destination.posicion = loc
+                }
+                if let placemark = info.1 {
+                    destination.placemark = placemark
+                }
+                    
+            }
+        }
     }
     
 }

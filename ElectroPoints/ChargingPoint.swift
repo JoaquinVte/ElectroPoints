@@ -18,28 +18,41 @@ class ChargingPoint: NSObject,MKAnnotation {
     let street:String
     let power:Double
     let price:Double
+    let type:Int
     
 
-    init(name:String,street:String,power:Double,price:Double,coordinate:CLLocationCoordinate2D) {
+    init(name:String,street:String,power:Double,price:Double,coordinate:CLLocationCoordinate2D,type : Int) {
         
         self.coordinate=coordinate
         self.name=name
         self.street=street
         self.power=power
         self.price=price
+        self.type = type
         title = name
         subtitle = street
+        
         
         super.init()
     }
     
-    enum ConnectorType: Int {
-        
-        case schuko = 1
-        case mennekes = 2
-        case chademo = 3
-            	
+    
+    
+    
+}
+
+enum ConnectorType: Int , CustomStringConvertible, CaseIterable {
+          
+    var description: String {
+        switch self {
+        case .schuko:
+            return "Shuko"
+        case .mennekes:
+            return "Mennekes"
+        case .chademo:
+            return "Chademo"
+        }
     }
-    
-    
+    case schuko = 1, mennekes = 2, chademo = 3
+            
 }
