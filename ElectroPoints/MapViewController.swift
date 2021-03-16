@@ -28,6 +28,23 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         toqueLargo.minimumPressDuration=2
                 
         mapView.addGestureRecognizer(toqueLargo)
+        
+        loadPoints()
+    }
+    
+    
+    func loadPoints(){
+        
+        let defaults = UserDefaults.standard
+        
+        if let savedPoints = defaults.object(forKey: "chargingPoints") as? Data {
+            let decoder = JSONDecoder()
+            
+            if let loadPoints = try? decoder.decode([ChargingPoint].self, from: savedPoints){
+                PointsService.shared.allPoints = loadPoints
+            }
+        }
+        
     }
     
     @objc func toqueLargoDetectado(gesto:UIGestureRecognizer){
