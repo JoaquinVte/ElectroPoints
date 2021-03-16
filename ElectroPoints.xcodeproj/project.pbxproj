@@ -16,6 +16,8 @@
 		1C802B0625FE7D45003D84F4 /* ChargingPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C802B0525FE7D45003D84F4 /* ChargingPoint.swift */; };
 		1C802B0925FE9296003D84F4 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C802B0825FE9296003D84F4 /* FormViewController.swift */; };
 		1CA2125E2600CBB500D8E50A /* ChargingPointsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA2125D2600CBB500D8E50A /* ChargingPointsService.swift */; };
+		1CA212612600CD9200D8E50A /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA212602600CD9200D8E50A /* ListViewController.swift */; };
+		1CA212642600D43100D8E50A /* PointChargingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA212632600D43100D8E50A /* PointChargingCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		1C802B0525FE7D45003D84F4 /* ChargingPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingPoint.swift; sourceTree = "<group>"; };
 		1C802B0825FE9296003D84F4 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		1CA2125D2600CBB500D8E50A /* ChargingPointsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingPointsService.swift; sourceTree = "<group>"; };
+		1CA212602600CD9200D8E50A /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		1CA212632600D43100D8E50A /* PointChargingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointChargingCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 				1C802B0825FE9296003D84F4 /* FormViewController.swift */,
 				1C802B0525FE7D45003D84F4 /* ChargingPoint.swift */,
 				1CA2125D2600CBB500D8E50A /* ChargingPointsService.swift */,
+				1CA212602600CD9200D8E50A /* ListViewController.swift */,
+				1CA212632600D43100D8E50A /* PointChargingCell.swift */,
 			);
 			path = ElectroPoints;
 			sourceTree = "<group>";
@@ -160,6 +166,8 @@
 				1CA2125E2600CBB500D8E50A /* ChargingPointsService.swift in Sources */,
 				1C802B0925FE9296003D84F4 /* FormViewController.swift in Sources */,
 				1C802B0625FE7D45003D84F4 /* ChargingPoint.swift in Sources */,
+				1CA212612600CD9200D8E50A /* ListViewController.swift in Sources */,
+				1CA212642600D43100D8E50A /* PointChargingCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

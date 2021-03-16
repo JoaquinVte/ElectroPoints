@@ -12,4 +12,8 @@ class PointsService {
     static var shared : PointsService = PointsService()
     var allPoints : [ChargingPoint] = []
     
+    private init(){
+        
+    }
+    
 }
